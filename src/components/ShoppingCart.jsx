@@ -2,8 +2,8 @@ import React, { useState, useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-
+import { FaArrowLeft, FaArrowRight, FaShoppingCart } from 'react-icons/fa';
+import ShoppingCartCard from '../layouts/ShoppingCartCard';
 
 const ShoppingCart = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -11,94 +11,80 @@ const ShoppingCart = () => {
         {
             id: 1,
             img: "/src/assets/img/cart.jpeg",
-            name: 'cold',
-            price: '$20',
-            
-            
+            name: 'Cold',
+            price: '20',
         },
         {
             id: 2,
             img: "/src/assets/img/cart2.jpeg",
             name: 'Product 2',
-            price: '$30',
+            price: '30',
         },
         {
-          id: 2,
-          img: "/src/assets/img/cart3.jpeg",
-          name: 'Product 3',
-          price: '$5',
+            id: 3,
+            img: "/src/assets/img/cart3.jpeg",
+            name: 'Product 3',
+            price: '5',
+        },
+        {
+          id: 4,
+          img: "/src/assets/img/cart4.jpeg",
+          name: 'Product 4',
+          price: '12',
       },
       {
-        id: 2,
-        img: "/src/assets/img/cart4.jpeg",
-        name: 'Product 4',
-        price: '$12',
+        id: 5,
+        img: "/src/assets/img/cart5.jpeg",
+        name: 'Product 5',
+        price: '13',
     },
     {
-      id: 2,
-      img: "/src/assets/img/cart5.jpeg",
-      name: 'Product 5',
-      price: '$13',
+      id: 6,
+      img: "/src/assets/img/cart6.jpeg",
+      name: 'Product 6',
+      price: '56',
   },
   {
-    id: 2,
-    img: "/src/assets/img/cart6.jpeg",
-    name: 'Product 6',
-    price: '$56',
-},
-{
-  id: 2,
-  img: "/src/assets/img/cart7.jpeg",
-  name: 'Product 7',
-  price: '$99',
-},
-{
-  id: 2,
-  img: "/src/assets/img/cart8.jpeg",
-  name: 'Product 8',
-  price: '$90',
-},
-{
-  id: 2,
-  img: "/src/assets/img/cart9.jpeg",
-  name: 'Product 9',
-  price: '$90',
-},
-{
-  id: 2,
-  img: "/src/assets/img/cart10.jpeg",
-  name: 'Product 10',
-  price: '$9',
-},
-{
-  id: 2,
-  img: "/src/assets/img/cart11.jpeg",
-  name: 'Product 11',
-  price: '$112',
-},{
-  id: 2,
-  img: "/src/assets/img/cart12.jpeg",
-  name: 'Product 12',
-  price: '$88',
-},
-{
-  id: 2,
-  img: "/src/assets/img/cart13.jpeg",
-  name: 'Product 13',
-  price: '$21',
-},
-{
-  id: 2,
-  img: "/src/assets/img/cart14.jpeg",
-  name: 'Product 14',
-  price: '$66',
-},
-{
-  id: 2,
-  img: "/src/assets/img/cart15.jpeg",
-  name: 'Product 15',
-  price: '$50',
-},
+    id: 7,
+    img: "/src/assets/img/cart7.jpeg",
+    name: 'Product 7',
+    price: '99',
+  },
+  {
+    id: 8,
+    img: "/src/assets/img/cart8.jpeg",
+    name: 'Product 8',
+    price: '90',
+  },
+  {
+    id: 9,
+    img: "/src/assets/img/cart9.jpeg",
+    name: 'Product 9',
+    price: '90',
+  },
+  {
+    id: 10,
+    img: "/src/assets/img/cart10.jpeg",
+    name: 'Product 10',
+    price: '9',
+  },
+  {
+    id: 11,
+    img: "/src/assets/img/cart11.jpeg",
+    name: 'Product 11',
+    price: '112',
+  },{
+    id: 12,
+    img: "/src/assets/img/cart12.jpeg",
+    name: 'Product 12',
+    price: '88',
+  },
+  {
+    id: 13,
+    img: "/src/assets/img/cart13.jpeg",
+    name: 'Product 13',
+    price: '21',
+  },
         // Add more product data as needed
     ];
 
@@ -155,57 +141,45 @@ const ShoppingCart = () => {
             <div className="flex flex-col items-center lg:flex-row justify-between mb-10 lg:mb-0">
                 <div>
                     <h1 className="text-4xl font-semibold text-center lg:text-start">Shopping Cart</h1>
-                    <p className="mt-2 text-center lg:text-start">
-                        Your shopping cart items
-                    </p>
+                    <p className="mt-2 text-center lg:text-start">Your shopping cart items</p>
                 </div>
                 <div className="flex gap-5 mt-4 lg:mt-0">
-                    <button
-                        className=" bg-[#d5f2ec] text-backgroundColor px-4 py-2 rounded-lg active:bg-[#ade9dc]"
-                        
-                        onClick={() => slider.current.slickPrev()}
-                    >
+                    <button className="bg-[#d5f2ec] text-backgroundColor px-4 py-2 rounded-lg active:bg-[#ade9dc]" onClick={() => slider.current.slickPrev()}>
                         <FaArrowLeft size={25} />
                     </button>
-                    <button
-                        className=" bg-[#d5f2ec] text-backgroundColor px-4 py-2 rounded-lg active:bg-[#ade9dc]"
-                        onClick={() => slider.current.slickNext()}
-                    >
+                    <button className="bg-[#d5f2ec] text-backgroundColor px-4 py-2 rounded-lg active:bg-[#ade9dc]" onClick={() => slider.current.slickNext()}>
                         <FaArrowRight size={25} />
                     </button>
+                </div>
+                <div className="flex items-center">
+                    <FaShoppingCart size={30} className="text-gray-700" />
+                    <span className="ml-1 text-gray-700">{cartItems.length}</span>
                 </div>
             </div>
             <div className="mt-5">
                 <Slider ref={slider} {...settings}>
                     {data.map((item, index) => (
-                        <div
-                            key={index}
-                            className="text-black rounded-xl shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] mb-2 cursor-pointer"
-                            style={{ width: '150px' }} // Adjusted width
-                        >
+                        <div key={index} className="text-black rounded-xl shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] mb-2 cursor-pointer" style={{ width: '150px' }}>
                             <div>
-                                <img
-                                    src={item.img}
-                                    alt="Product"
-                                    className="h-[190px] w-full object-cover rounded-t-xl"
-                                />
+                                <img src={item.img} alt="Product" className="h-[190px] w-full object-cover rounded-t-xl" />
                             </div>
                             <div className="flex flex-col justify-center items-center p-4">
                                 <h1 className="font-semibold text-lg">{item.name}</h1>
-                                <h3 className="mt-2">{item.price}</h3>
-                                <div className="flex gap-4 mt-4">
-                                    <button
-                                        className="bg-green-500 text-white px-3 py-1 rounded-md"
-                                        onClick={() => addToCart(item)}
-                                    >
-                                        Add to Cart
-                                    </button>
-                                    
-                                </div>
+                                <h3 className="mt-2">${item.price}</h3>
+                                <button className="bg-green-500 text-white px-3 py-1 rounded-md mt-4" onClick={() => addToCart(item)}>
+                                    Add to Cart
+                                </button>
                             </div>
                         </div>
                     ))}
                 </Slider>
+            </div>
+            <div className="mt-5">
+                <ul>
+                    {cartItems.map((item, index) => (
+                        <ShoppingCartCard key={index} item={item} image={item.img} removeFromCart={() => removeFromCart(item.id)} />
+                    ))}
+                </ul>
             </div>
         </div>
     );
